@@ -1,444 +1,757 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" prefix="og: https://ogp.me/ns#">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Miguel Chuil | Desarrollador de Software</title>
-  <style>
-    :root {
-      --bg: #0f172a;
-      --card: #111827;
-      --text: #e5e7eb;
-      --muted: #94a3b8;
-      --accent: #38bdf8;
-      --accent2: #22c55e;
-    }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  <!-- ── SEO primario ── -->
+  <title>Miguel Chuil | Desarrollador Full Stack PHP Laravel Vue Ionic</title>
+  <meta name="description" content="Desarrollador Full Stack con +10 años de experiencia. Creo sistemas web a la medida, aplicaciones móviles con Ionic, APIs REST y plataformas empresariales con PHP, Laravel, Vue.js y MySQL." />
+  <meta name="keywords" content="desarrollador full stack, desarrollador PHP, Laravel, Vue.js, Ionic, aplicaciones móviles, sistemas a la medida, CRM, API REST, MySQL, desarrollador freelance, Mexico, Chiapas" />
+  <meta name="author" content="Miguel Chuil" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="theme-color" content="#030712" />
+  <link rel="canonical" href="https://miguelchuil.com/" />
 
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #020617, #0f172a);
-      color: var(--text);
-      line-height: 1.6;
-    }
+  <!-- ── Open Graph / Facebook ── -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://miguelchuil.com/" />
+  <meta property="og:title"       content="Miguel Chuil | Desarrollador Full Stack PHP · Laravel · Vue · Ionic" />
+  <meta property="og:description" content="Desarrollador Full Stack con +10 años de experiencia construyendo sistemas web empresariales, apps móviles y APIs robustas para negocios reales." />
+  <meta property="og:image"       content="https://miguelchuil.com/assets/img/og-cover.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt"   content="Miguel Chuil — Desarrollador Full Stack" />
+  <meta property="og:locale"      content="es_MX" />
+  <meta property="og:site_name"   content="Miguel Chuil Dev" />
 
-    .container {
-      width: min(1100px, 92%);
-      margin: auto;
-    }
+  <!-- ── Twitter Card ── -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:url"         content="https://miguelchuil.com/" />
+  <meta name="twitter:title"       content="Miguel Chuil | Desarrollador Full Stack" />
+  <meta name="twitter:description" content="Sistemas web, apps móviles y APIs para empresas. PHP · Laravel · Vue.js · Ionic · MySQL." />
+  <meta name="twitter:image"       content="https://miguelchuil.com/assets/img/og-cover.png" />
 
-    header {
-      padding: 28px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-weight: bold;
-      font-size: 22px;
-      color: white;
-    }
-
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      margin-left: 20px;
-      font-size: 14px;
-    }
-
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    .hero {
-      padding: 90px 0 70px;
-      display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .badge {
-      display: inline-block;
-      color: var(--accent);
-      background: rgba(56, 189, 248, 0.12);
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      font-size: clamp(38px, 6vw, 64px);
-      line-height: 1.05;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      color: var(--muted);
-      font-size: 18px;
-      max-width: 680px;
-      margin-bottom: 30px;
-    }
-
-    .buttons a {
-      display: inline-block;
-      padding: 13px 20px;
-      border-radius: 12px;
-      text-decoration: none;
-      margin-right: 12px;
-      font-weight: bold;
-    }
-
-    .primary {
-      background: var(--accent);
-      color: #020617;
-    }
-
-    .secondary {
-      border: 1px solid #334155;
-      color: white;
-    }
-
-    .profile-card {
-      background: rgba(17, 24, 39, 0.85);
-      border: 1px solid #1f2937;
-      border-radius: 24px;
-      padding: 30px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-    }
-
-    .profile-card h2 {
-      margin-bottom: 12px;
-    }
-
-    .profile-card p {
-      color: var(--muted);
-      margin-bottom: 15px;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 40px;
-    }
-
-    .stat {
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid #1e293b;
-      padding: 22px;
-      border-radius: 18px;
-    }
-
-    .stat strong {
-      color: var(--accent2);
-      font-size: 28px;
-    }
-
-    section {
-      padding: 65px 0;
-    }
-
-    section h2 {
-      font-size: 32px;
-      margin-bottom: 16px;
-    }
-
-    .section-intro {
-      color: var(--muted);
-      max-width: 750px;
-      margin-bottom: 35px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .card {
-      background: rgba(17, 24, 39, 0.88);
-      border: 1px solid #1f2937;
-      padding: 24px;
-      border-radius: 20px;
-    }
-
-    .card h3 {
-      margin-bottom: 12px;
-      color: white;
-    }
-
-    .card p, .card li {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    ul {
-      padding-left: 18px;
-    }
-
-    .tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .tech span {
-      background: #1e293b;
-      color: #cbd5e1;
-      padding: 9px 13px;
-      border-radius: 999px;
-      font-size: 14px;
-    }
-
-    .contact {
-      text-align: center;
-      background: rgba(17, 24, 39, 0.9);
-      border: 1px solid #1f2937;
-      border-radius: 26px;
-      padding: 50px 25px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    @media (max-width: 850px) {
-      .hero,
-      .grid,
-      .stats {
-        grid-template-columns: 1fr;
+  <!-- ── JSON-LD: Person + WebSite ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://miguelchuil.com/#person",
+        "name": "Miguel Chuil",
+        "url": "https://miguelchuil.com/",
+        "email": "developer.chuil@gmail.com",
+        "sameAs": [
+          "https://github.com/mchuil",
+          "https://mchuil.github.io/"
+        ],
+        "jobTitle": "Desarrollador Full Stack",
+        "description": "Desarrollador Full Stack con más de 10 años de experiencia creando sistemas web, aplicaciones móviles, APIs REST y plataformas empresariales.",
+        "knowsAbout": ["PHP", "Laravel", "CodeIgniter", "Vue.js", "JavaScript", "Ionic", "Angular", "Capacitor", "MySQL", "Firebase", "REST APIs", "Linux VPS"],
+        "image": "https://miguelchuil.com/assets/img/og-cover.png"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://miguelchuil.com/#website",
+        "url": "https://miguelchuil.com/",
+        "name": "Miguel Chuil — Desarrollador Full Stack",
+        "description": "Portafolio profesional de Miguel Chuil, desarrollador Full Stack especializado en sistemas empresariales, apps móviles y APIs REST.",
+        "inLanguage": "es-MX",
+        "author": { "@id": "https://miguelchuil.com/#person" }
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://miguelchuil.com/#service",
+        "name": "Miguel Chuil — Desarrollo de Software",
+        "url": "https://miguelchuil.com/",
+        "email": "developer.chuil@gmail.com",
+        "description": "Desarrollo de sistemas a la medida, aplicaciones móviles, APIs REST y soporte técnico para empresas.",
+        "areaServed": "MX",
+        "serviceType": ["Desarrollo Web", "Aplicaciones Móviles", "API REST", "Sistemas Empresariales"],
+        "provider": { "@id": "https://miguelchuil.com/#person" }
       }
+    ]
+  }
+  </script>
 
-      header {
-        flex-direction: column;
-        gap: 16px;
-      }
-
-      nav a {
-        margin: 0 8px;
-      }
-    }
-  </style>
+  <!-- ── Performance ── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
 
-  <header class="container">
-    <div class="logo">Miguel Chuil</div>
-    <nav>
-      <a href="#sobre-mi">Sobre mí</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#proyectos">Experiencia</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+  <!-- ── NAV ── -->
+  <header>
+    <div class="container">
+      <div class="nav-inner">
+        <div class="logo">Miguel<span>.</span></div>
+        <nav>
+          <a href="#sobre-mi">Sobre mí</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#proyectos">Experiencia</a>
+          <a href="#portafolio">Portafolio</a>
+          <a href="#contacto" class="nav-cta">Contacto</a>
+        </nav>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <section class="hero container">
-      <div>
-        <span class="badge">Desarrollador de Software Full Stack</span>
-        <h1>Creo sistemas web y apps que resuelven problemas reales.</h1>
-        <p>
-          Soy desarrollador de software con más de 10 años de experiencia creando plataformas web,
-          aplicaciones móviles, sistemas administrativos, APIs, automatizaciones y soluciones para empresas.
-          Trabajo principalmente con PHP, JavaScript, Vue, Ionic, Laravel, CodeIgniter, MySQL y servicios en la nube.
+  <main id="main-content" role="main">
+
+    <!-- ── HERO ── -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+
+          <div class="hero-content">
+            <div class="hero-tag">Disponible para proyectos</div>
+            <h1 class="hero-title">
+              Desarrollo software<br>que <span class="grad-text">funciona de verdad.</span>
+            </h1>
+            <p class="hero-desc">
+              Soy desarrollador Full Stack con más de 10 años de experiencia construyendo
+              plataformas web, aplicaciones móviles, sistemas empresariales y APIs robustas
+              para negocios reales.
+              <br><br>
+              Mi especialidad no es crear demos impresionantes; es construir
+software que resuelve problemas reales de negocio.
+            </p>
+            <div class="btn-row">
+              <a href="#contacto" class="btn btn-primary">Trabajemos juntos</a>
+              <a href="#proyectos" class="btn btn-secondary">Ver experiencia</a>
+            </div>
+          </div>
+
+          <div class="profile-card">
+            <div class="pc-header">
+              <div class="avatar">MC</div>
+              <div class="pc-info">
+                <h3>Miguel Chuil</h3>
+                <span>Full Stack Developer</span>
+              </div>
+            </div>
+            <p>
+              Construyo soluciones a la medida para negocios que necesitan controlar procesos,
+              clientes, pagos, inventarios y operaciones internas.
+            </p>
+            <div class="divider"></div>
+            <div class="highlights">
+              <div class="hi">+10 años de experiencia profesional</div>
+              <div class="hi">Sistemas web, móviles y APIs REST</div>
+              <div class="hi">PHP · Laravel · Vue · Ionic · MySQL</div>
+              <div class="hi">Proyectos en producción reales</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── QUÉ ME DIFERENCIA ── -->
+    <section class="diff-section">
+      <div class="container">
+        <div class="diff-header">
+          <div class="sec-label">Por qué elegirme</div>
+          <h2>¿Qué me diferencia?</h2>
+          <p class="sec-desc" style="margin-bottom:0;max-width:620px;margin-left:auto;margin-right:auto;text-align:center;">
+            No solo domino tecnologías — entiendo negocios. Esa combinación es lo que convierte
+            un requerimiento en software que realmente funciona.
+          </p>
+        </div>
+
+        <div class="diff-grid">
+
+          <div class="diff-card">
+            <div class="diff-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="26" height="26">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3>Visión de negocio</h3>
+            <p>
+              Entiendo cómo funciona una empresa antes de escribir una sola línea de código.
+              Mis sistemas están pensados para resolver problemas reales, no solo cumplir especificaciones.
+            </p>
+          </div>
+
+          <div class="diff-card">
+            <div class="diff-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="26" height="26">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <h3>Experiencia en producción</h3>
+            <p>
+              He participado no solo en el desarrollo sino en la operación diaria de sistemas
+              para ISP, escuelas, inventarios, cobranza y pagos — en producción real.
+            </p>
+          </div>
+
+          <div class="diff-card">
+            <div class="diff-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="26" height="26">
+                <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+              </svg>
+            </div>
+            <h3>Software que crece contigo</h3>
+            <p>
+              Construyo código mantenible y escalable. No solo entrego y desaparezco — ofrezco
+              continuidad para que tu plataforma evolucione sin reescribirse desde cero.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="diff-quote">
+          <span class="diff-quote-mark">"</span>
+          No solo programo funcionalidades; diseño soluciones que ayudan a las organizaciones a trabajar mejor.
+          <span class="diff-quote-mark">"</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── STATS ── -->
+    <div class="stats-wrap">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-num">10+</div>
+            <div class="stat-lbl">Años de experiencia en desarrollo</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">Web</div>
+            <div class="stat-lbl">Sistemas administrativos, CRMs y APIs REST</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">Apps</div>
+            <div class="stat-lbl">Aplicaciones móviles híbridas con Ionic</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- ── SOBRE MÍ ── -->
+    <section id="sobre-mi">
+      <div class="container">
+        <div class="sec-label">Perfil</div>
+        <h2>Sobre mí</h2>
+        <p class="sec-desc">
+          Desarrollador enfocado en entregar soluciones prácticas. He trabajado en sistemas para empresas ISP,
+          control escolar, ventas, inventarios, pagos, apps móviles y administración de servidores.
+        </p>
+        <div class="cards">
+          <div class="card">
+            <div class="card-ico">⚙️</div>
+            <h3>Backend</h3>
+            <p>
+              APIs, paneles administrativos, módulos de negocio, autenticación, reportes,
+              procesos automáticos y lógica empresarial con PHP, Laravel y CodeIgniter.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-ico">🖥️</div>
+            <h3>Frontend</h3>
+            <p>
+              Interfaces limpias, responsivas y fáciles de usar con Vue.js, JavaScript,
+              TailwindCSS y Bootstrap, enfocadas en la experiencia del usuario.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-ico">📱</div>
+            <h3>Apps móviles</h3>
+            <p>
+              Aplicaciones híbridas con Ionic y Capacitor para Android, integradas con APIs,
+              pagos, notificaciones push y paneles administrativos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="sep"></div>
+
+    <!-- ── SERVICIOS ── -->
+    <section id="servicios">
+      <div class="container">
+        <div class="sec-label">Qué ofrezco</div>
+        <h2>Servicios</h2>
+        <p class="sec-desc">
+          Ayudo a negocios y empresas a digitalizar procesos, automatizar tareas y crear herramientas
+          que realmente usen en su operación diaria.
+        </p>
+        <div class="cards">
+          <div class="card">
+            <div class="card-ico">🏢</div>
+            <h3>Sistemas a la medida</h3>
+            <ul>
+              <li>CRMs y paneles administrativos</li>
+              <li>Control de clientes y pagos</li>
+              <li>Inventarios y movimientos</li>
+              <li>Reportes y dashboards</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-ico">📲</div>
+            <h3>Aplicaciones móviles</h3>
+            <ul>
+              <li>Apps para clientes</li>
+              <li>Apps para cobradores o técnicos</li>
+              <li>Integración con APIs</li>
+              <li>Notificaciones push</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-ico">🔧</div>
+            <h3>Soporte y mejora</h3>
+            <ul>
+              <li>Migraciones de PHP</li>
+              <li>Optimización de bases de datos</li>
+              <li>Corrección de errores</li>
+              <li>Administración de servidores</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="sep"></div>
+
+    <!-- ── EXPERIENCIA ── -->
+    <section id="proyectos">
+      <div class="container">
+        <div class="sec-label">Trayectoria</div>
+        <h2>Experiencia destacada</h2>
+        <p class="sec-desc">
+          Proyectos que reflejan mi experiencia construyendo software real,
+          en producción, para negocios con operaciones concretas.
+        </p>
+        <div class="cards">
+          <div class="card">
+            <div class="card-ico">🌐</div>
+            <h3>Sistemas para empresas ISP</h3>
+            <p>
+              Plataformas para administración de contratos, pagos, suspensión de servicio,
+              sucursales, reportes, inventario y operación diaria.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-ico">👥</div>
+            <h3>Apps para clientes y cobradores</h3>
+            <p>
+              Aplicaciones móviles conectadas a sistemas centrales para consulta de pagos,
+              reportes, servicios y gestión de clientes en campo.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-ico">🎓</div>
+            <h3>Sistemas escolares</h3>
+            <p>
+              Soluciones para control de alumnos, pagos, calificaciones, usuarios,
+              reportes y administración interna institucional.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="sep"></div>
+
+    <!-- ── PORTAFOLIO ── -->
+    <section id="portafolio">
+      <div class="container">
+        <div class="sec-label">Portafolio</div>
+        <h2>Proyectos en imágenes</h2>
+        <p class="sec-desc">
+          Capturas de algunos sistemas y aplicaciones que he desarrollado.
+          Haz clic en cualquier tarjeta para ver el detalle.
         </p>
 
-        <div class="buttons">
-          <a href="#contacto" class="primary">Trabajemos juntos</a>
-          <a href="#proyectos" class="secondary">Ver experiencia</a>
-        </div>
-      </div>
+        <div class="portfolio-grid">
 
-      <div class="profile-card">
-        <h2>Especializado en soluciones empresariales</h2>
-        <p>
-          Desarrollo sistemas a la medida para negocios que necesitan controlar procesos,
-          clientes, pagos, inventarios, reportes y operaciones internas.
-        </p>
-        <p>
-          Mi enfoque es construir software funcional, mantenible y pensado para crecer.
-        </p>
+          <!-- 1 -->
+          <div class="pcard"
+            data-title="Sistema de Gestión ISP"
+            data-desc="Plataforma web completa para empresas de internet: administración de contratos, pagos, cortes automáticos, sucursales, inventario de equipos y reportes gerenciales en tiempo real."
+            data-tags="PHP,Laravel,Vue.js,MySQL">
+            <div class="pcard-screen">
+              <div class="pscreen-chrome">
+                <div class="pscreen-dot" style="background:#f87171"></div>
+                <div class="pscreen-dot" style="background:#fbbf24"></div>
+                <div class="pscreen-dot" style="background:#34d399"></div>
+              </div>
+              <div class="pscreen-bg" style="background:linear-gradient(135deg,#0c4a6e 0%,#0f2544 100%)"></div>
+              <div class="pscreen-ui">
+                <div class="pscreen-row accent w80"></div>
+                <div class="pscreen-row w60"></div>
+                <div class="pscreen-mini-grid">
+                  <div class="pscreen-mini-card"></div>
+                  <div class="pscreen-mini-card"></div>
+                  <div class="pscreen-mini-card"></div>
+                </div>
+                <div class="pscreen-row w40"></div>
+                <div class="pscreen-row w80"></div>
+              </div>
+              <div class="pcard-overlay"><span class="pcard-overlay-btn">Ver detalle</span></div>
+            </div>
+            <div class="pcard-body">
+              <div class="pcard-name">Sistema de Gestión ISP</div>
+              <div class="pcard-desc">Contratos, pagos, cortes automáticos e inventario por sucursal.</div>
+              <div class="pcard-tags">
+                <span class="pcard-tag">PHP</span>
+                <span class="pcard-tag">Laravel</span>
+                <span class="pcard-tag">Vue.js</span>
+                <span class="pcard-tag">MySQL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2 -->
+          <div class="pcard"
+            data-title="App Móvil de Cobranza"
+            data-desc="Aplicación híbrida para cobradores en campo: consulta de clientes, registro de pagos, historial, mapas y notificaciones push en tiempo real integradas con el sistema central."
+            data-tags="Ionic,Capacitor,Vue.js,Firebase,REST API">
+            <div class="pcard-screen">
+              <div class="pscreen-chrome">
+                <div class="pscreen-dot" style="background:#f87171"></div>
+                <div class="pscreen-dot" style="background:#fbbf24"></div>
+                <div class="pscreen-dot" style="background:#34d399"></div>
+              </div>
+              <div class="pscreen-bg" style="background:linear-gradient(135deg,#134e4a 0%,#0f172a 100%)"></div>
+              <div class="pscreen-ui">
+                <div class="pscreen-row accent w60"></div>
+                <div class="pscreen-row tall w80"></div>
+                <div class="pscreen-row w40"></div>
+                <div class="pscreen-row w80"></div>
+              </div>
+              <div class="pcard-overlay"><span class="pcard-overlay-btn">Ver detalle</span></div>
+            </div>
+            <div class="pcard-body">
+              <div class="pcard-name">App Móvil de Cobranza</div>
+              <div class="pcard-desc">Registro de pagos, historial y notificaciones push para cobradores.</div>
+              <div class="pcard-tags">
+                <span class="pcard-tag">Ionic</span>
+                <span class="pcard-tag">Capacitor</span>
+                <span class="pcard-tag">Firebase</span>
+                <span class="pcard-tag">REST API</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 -->
+          <div class="pcard"
+            data-title="Control Escolar"
+            data-desc="Sistema integral para instituciones educativas: control de alumnos, inscripciones, pagos de colegiatura, calificaciones por materia, grupos, generación de boletas y reportes administrativos."
+            data-tags="PHP,CodeIgniter,MySQL,Bootstrap,JavaScript">
+            <div class="pcard-screen">
+              <div class="pscreen-chrome">
+                <div class="pscreen-dot" style="background:#f87171"></div>
+                <div class="pscreen-dot" style="background:#fbbf24"></div>
+                <div class="pscreen-dot" style="background:#34d399"></div>
+              </div>
+              <div class="pscreen-bg" style="background:linear-gradient(135deg,#3b0764 0%,#0f172a 100%)"></div>
+              <div class="pscreen-ui">
+                <div class="pscreen-row w80"></div>
+                <div class="pscreen-row accent w60"></div>
+                <div class="pscreen-row w40"></div>
+                <div class="pscreen-mini-grid">
+                  <div class="pscreen-mini-card"></div>
+                  <div class="pscreen-mini-card"></div>
+                  <div class="pscreen-mini-card"></div>
+                </div>
+              </div>
+              <div class="pcard-overlay"><span class="pcard-overlay-btn">Ver detalle</span></div>
+            </div>
+            <div class="pcard-body">
+              <div class="pcard-name">Control Escolar</div>
+              <div class="pcard-desc">Alumnos, pagos de colegiatura, calificaciones y boletas PDF.</div>
+              <div class="pcard-tags">
+                <span class="pcard-tag">PHP</span>
+                <span class="pcard-tag">CodeIgniter</span>
+                <span class="pcard-tag">MySQL</span>
+                <span class="pcard-tag">Bootstrap</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 -->
+          <div class="pcard"
+            data-title="Dashboard de Inventario"
+            data-desc="Panel de control para gestión de inventario: entradas y salidas, alertas de stock mínimo, kardex, múltiples almacenes, gráficas en tiempo real y reportes en PDF y Excel."
+            data-tags="Laravel,Vue.js,MySQL,Chart.js,REST API">
+            <div class="pcard-screen">
+              <div class="pscreen-chrome">
+                <div class="pscreen-dot" style="background:#f87171"></div>
+                <div class="pscreen-dot" style="background:#fbbf24"></div>
+                <div class="pscreen-dot" style="background:#34d399"></div>
+              </div>
+              <div class="pscreen-bg" style="background:linear-gradient(135deg,#1e1b4b 0%,#0a0f2e 100%)"></div>
+              <div class="pscreen-ui">
+                <div class="pscreen-row accent w80"></div>
+                <div class="pscreen-mini-grid">
+                  <div class="pscreen-mini-card"></div>
+                  <div class="pscreen-mini-card"></div>
+                  <div class="pscreen-mini-card"></div>
+                </div>
+                <div class="pscreen-row w60"></div>
+                <div class="pscreen-row w40"></div>
+              </div>
+              <div class="pcard-overlay"><span class="pcard-overlay-btn">Ver detalle</span></div>
+            </div>
+            <div class="pcard-body">
+              <div class="pcard-name">Dashboard de Inventario</div>
+              <div class="pcard-desc">Entradas, salidas, alertas de stock y reportes por almacén.</div>
+              <div class="pcard-tags">
+                <span class="pcard-tag">Laravel</span>
+                <span class="pcard-tag">Vue.js</span>
+                <span class="pcard-tag">Chart.js</span>
+                <span class="pcard-tag">MySQL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5 -->
+          <div class="pcard"
+            data-title="API REST + Panel Admin"
+            data-desc="Arquitectura de API RESTful con autenticación JWT, panel administrativo para gestión de recursos, control de permisos por roles, logs de auditoría y documentación con Swagger."
+            data-tags="Laravel,JWT,Swagger,MySQL,Linux VPS">
+            <div class="pcard-screen">
+              <div class="pscreen-chrome">
+                <div class="pscreen-dot" style="background:#f87171"></div>
+                <div class="pscreen-dot" style="background:#fbbf24"></div>
+                <div class="pscreen-dot" style="background:#34d399"></div>
+              </div>
+              <div class="pscreen-bg" style="background:linear-gradient(135deg,#064e3b 0%,#0a1f18 100%)"></div>
+              <div class="pscreen-ui">
+                <div class="pscreen-row accent w60"></div>
+                <div class="pscreen-row w80"></div>
+                <div class="pscreen-row tall w60"></div>
+                <div class="pscreen-row w40"></div>
+              </div>
+              <div class="pcard-overlay"><span class="pcard-overlay-btn">Ver detalle</span></div>
+            </div>
+            <div class="pcard-body">
+              <div class="pcard-name">API REST + Panel Admin</div>
+              <div class="pcard-desc">API con JWT, roles, auditoría y documentación Swagger.</div>
+              <div class="pcard-tags">
+                <span class="pcard-tag">Laravel</span>
+                <span class="pcard-tag">JWT</span>
+                <span class="pcard-tag">Swagger</span>
+                <span class="pcard-tag">Linux VPS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6 -->
+          <div class="pcard"
+            data-title="App de Servicios al Cliente"
+            data-desc="Aplicación móvil para clientes finales: consulta de saldo, pagos en línea integrados, tickets de soporte, historial de consumo, estado del servicio y notificaciones push."
+            data-tags="Ionic,Angular,Firebase,Capacitor,REST API">
+            <div class="pcard-screen">
+              <div class="pscreen-chrome">
+                <div class="pscreen-dot" style="background:#f87171"></div>
+                <div class="pscreen-dot" style="background:#fbbf24"></div>
+                <div class="pscreen-dot" style="background:#34d399"></div>
+              </div>
+              <div class="pscreen-bg" style="background:linear-gradient(135deg,#4a044e 0%,#1a0a2e 100%)"></div>
+              <div class="pscreen-ui">
+                <div class="pscreen-row w80"></div>
+                <div class="pscreen-row accent w60"></div>
+                <div class="pscreen-mini-grid">
+                  <div class="pscreen-mini-card"></div>
+                  <div class="pscreen-mini-card"></div>
+                  <div class="pscreen-mini-card"></div>
+                </div>
+                <div class="pscreen-row w40"></div>
+              </div>
+              <div class="pcard-overlay"><span class="pcard-overlay-btn">Ver detalle</span></div>
+            </div>
+            <div class="pcard-body">
+              <div class="pcard-name">App de Servicios al Cliente</div>
+              <div class="pcard-desc">Pagos, soporte, estado del servicio e historial desde la app.</div>
+              <div class="pcard-tags">
+                <span class="pcard-tag">Ionic</span>
+                <span class="pcard-tag">Angular</span>
+                <span class="pcard-tag">Firebase</span>
+                <span class="pcard-tag">Capacitor</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
-    <section class="container">
-      <div class="stats">
-        <div class="stat">
-          <strong>10+</strong>
-          <p>Años de experiencia</p>
+    <!-- Lightbox -->
+    <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Vista de proyecto">
+      <button class="lb-close" id="lb-close" aria-label="Cerrar">✕</button>
+      <button class="lb-arrow lb-prev" id="lb-prev" aria-label="Anterior">&#8249;</button>
+      <button class="lb-arrow lb-next" id="lb-next" aria-label="Siguiente">&#8250;</button>
+      <div class="lb-box">
+        <div class="lb-screen">
+          <div class="pscreen-chrome">
+            <div class="pscreen-dot" style="background:#f87171"></div>
+            <div class="pscreen-dot" style="background:#fbbf24"></div>
+            <div class="pscreen-dot" style="background:#34d399"></div>
+          </div>
+          <div class="pscreen-bg" id="lb-bg"></div>
+          <div class="pscreen-ui"  id="lb-ui"></div>
         </div>
-        <div class="stat">
-          <strong>Web</strong>
-          <p>Sistemas administrativos y APIs</p>
+        <div class="lb-content">
+          <div class="lb-title" id="lb-title"></div>
+          <div class="lb-desc"  id="lb-desc"></div>
+          <div class="lb-tags"  id="lb-tags"></div>
         </div>
-        <div class="stat">
-          <strong>Apps</strong>
-          <p>Aplicaciones móviles con Ionic</p>
+      </div>
+      <div class="lb-counter" id="lb-counter"></div>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- ── TECNOLOGÍAS ── -->
+    <section>
+      <div class="container">
+        <div class="sec-label">Stack</div>
+        <h2>Tecnologías</h2>
+        <p class="sec-desc">Herramientas y tecnologías con las que trabajo frecuentemente.</p>
+        <div class="tech-wrap">
+          <span class="tag">PHP</span>
+          <span class="tag">Laravel</span>
+          <span class="tag">CodeIgniter</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Vue.js</span>
+          <span class="tag">Ionic</span>
+          <span class="tag">Angular</span>
+          <span class="tag">Capacitor</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">Firebase</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">Git</span>
+          <span class="tag">cPanel / WHM</span>
+          <span class="tag">Linux VPS</span>
         </div>
       </div>
     </section>
 
-    <section id="sobre-mi" class="container">
-      <h2>Sobre mí</h2>
-      <p class="section-intro">
-        Soy un desarrollador enfocado en entregar soluciones prácticas. He trabajado en sistemas para empresas ISP,
-        control escolar, ventas, inventarios, pagos, reportes, aplicaciones móviles y administración de servidores.
-      </p>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Backend</h3>
+    <!-- ── CONTACTO ── -->
+    <section id="contacto">
+      <div class="container">
+        <div class="contact-box">
+          <div class="sec-label">Conectemos</div>
+          <h2>¿Tienes un proyecto en mente?</h2>
           <p>
-            Desarrollo APIs, paneles administrativos, módulos de negocio, autenticación,
-            reportes, procesos automáticos y lógica empresarial.
+            Puedo ayudarte a crear, mejorar o mantener tu sistema web,
+            aplicación móvil o plataforma empresarial. Hablemos.
           </p>
-        </div>
-
-        <div class="card">
-          <h3>Frontend</h3>
-          <p>
-            Creo interfaces limpias, responsivas y fáciles de usar con Vue, JavaScript,
-            TailwindCSS, Bootstrap y tecnologías modernas.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Apps móviles</h3>
-          <p>
-            Desarrollo aplicaciones móviles híbridas con Ionic y Capacitor para Android,
-            integradas con APIs, pagos, notificaciones y paneles administrativos.
-          </p>
+          <div class="btn-row">
+            <a href="mailto:developer.chuil@gmail.com" class="btn btn-primary">Enviarme un correo</a>
+            <a href="https://github.com/mchuil" class="btn btn-secondary" target="_blank" rel="noopener">Ver GitHub</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="servicios" class="container">
-      <h2>Servicios</h2>
-      <p class="section-intro">
-        Ayudo a negocios y empresas a digitalizar procesos, automatizar tareas y crear herramientas
-        que realmente usen en su operación diaria.
-      </p>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Sistemas a la medida</h3>
-          <ul>
-            <li>CRMs y paneles administrativos</li>
-            <li>Control de clientes y pagos</li>
-            <li>Inventarios y movimientos</li>
-            <li>Reportes y dashboards</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Aplicaciones móviles</h3>
-          <ul>
-            <li>Apps para clientes</li>
-            <li>Apps para cobradores o técnicos</li>
-            <li>Integración con APIs</li>
-            <li>Notificaciones push</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Soporte técnico y mejora de sistemas</h3>
-          <ul>
-            <li>Migraciones de PHP</li>
-            <li>Optimización de bases de datos</li>
-            <li>Corrección de errores</li>
-            <li>Administración básica de servidores</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="proyectos" class="container">
-      <h2>Experiencia destacada</h2>
-      <p class="section-intro">
-        Algunos tipos de proyectos en los que he trabajado y que reflejan mi experiencia construyendo software real,
-        no castillos de humo con login bonito.
-      </p>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Sistemas para empresas ISP</h3>
-          <p>
-            Desarrollo y mantenimiento de plataformas para administración de contratos,
-            pagos, suspensión de servicio, sucursales, reportes, inventario y operación diaria.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Aplicaciones para clientes y cobradores</h3>
-          <p>
-            Apps móviles conectadas a sistemas centrales para consulta de pagos,
-            reportes, servicios, gestión de clientes y operación en campo.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Sistemas escolares y administrativos</h3>
-          <p>
-            Desarrollo de soluciones para control de alumnos, pagos, calificaciones,
-            usuarios, reportes y administración interna.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="container">
-      <h2>Tecnologías</h2>
-      <p class="section-intro">
-        Herramientas y tecnologías con las que trabajo frecuentemente.
-      </p>
-
-      <div class="tech">
-        <span>PHP</span>
-        <span>Laravel</span>
-        <span>CodeIgniter</span>
-        <span>JavaScript</span>
-        <span>Vue.js</span>
-        <span>Ionic</span>
-        <span>Angular</span>
-        <span>Capacitor</span>
-        <span>MySQL</span>
-        <span>Firebase</span>
-        <span>REST APIs</span>
-        <span>Git</span>
-        <span>cPanel / WHM</span>
-        <span>Linux VPS</span>
-      </div>
-    </section>
-
-    <section id="contacto" class="container">
-      <div class="contact">
-        <h2>¿Tienes un proyecto en mente?</h2>
-        <p class="section-intro" style="margin: 15px auto 30px;">
-          Puedo ayudarte a crear, mejorar o mantener tu sistema web, aplicación móvil o plataforma empresarial.
-        </p>
-
-        <div class="buttons">
-          <a href="mailto:developer.chuil@gmail.com" class="primary">Enviarme un correo</a>
-          <a href="https://github.com/mchuil" class="secondary" target="_blank">Ver GitHub</a>
-        </div>
-      </div>
-    </section>
   </main>
 
+  <!-- ── Botones flotantes ── -->
+  <a
+    href="https://wa.me/529613344077"
+    class="fab-wa"
+    target="_blank"
+    rel="noopener"
+    aria-label="Escribir por WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.118 1.532 5.845L.057 23.492a.5.5 0 0 0 .614.614l5.764-1.461A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 0 1-5.031-1.388l-.36-.214-3.733.946.98-3.619-.236-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/>
+    </svg>
+    <span class="fab-wa-label">WhatsApp</span>
+  </a>
+
+  <button id="scroll-top" class="fab-top" aria-label="Subir al inicio">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
   <footer>
-    © 2026 Miguel Chuil. Desarrollador de Software.
+    <div class="container">
+      <div class="foot-inner">
+        <p>© 2026 Miguel Chuil. Todos los derechos reservados.</p>
+        <div class="foot-links">
+          <a href="mailto:developer.chuil@gmail.com">Email</a>
+          <a href="https://github.com/mchuil" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
+  <script>
+    (function () {
+      const cards   = Array.from(document.querySelectorAll('.pcard'));
+      const lb      = document.getElementById('lb');
+      const lbBg    = document.getElementById('lb-bg');
+      const lbUi    = document.getElementById('lb-ui');
+      const lbTitle = document.getElementById('lb-title');
+      const lbDesc  = document.getElementById('lb-desc');
+      const lbTags  = document.getElementById('lb-tags');
+      const lbCnt   = document.getElementById('lb-counter');
+      let cur = 0;
+
+      function open(i) {
+        cur = i;
+        const c  = cards[i];
+        const bg = c.querySelector('.pscreen-bg');
+        const ui = c.querySelector('.pscreen-ui');
+        lbBg.style.background = bg ? bg.style.background : '';
+        lbUi.innerHTML        = ui ? ui.innerHTML : '';
+        lbTitle.textContent   = c.dataset.title || '';
+        lbDesc.textContent    = c.dataset.desc  || '';
+        lbTags.innerHTML = (c.dataset.tags || '')
+          .split(',')
+          .map(t => `<span class="pcard-tag">${t.trim()}</span>`)
+          .join('');
+        lbCnt.textContent = `${i + 1} / ${cards.length}`;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      cards.forEach((c, i) => c.addEventListener('click', () => open(i)));
+
+      document.getElementById('lb-close').addEventListener('click', close);
+      document.getElementById('lb-prev').addEventListener('click', () => open((cur - 1 + cards.length) % cards.length));
+      document.getElementById('lb-next').addEventListener('click', () => open((cur + 1) % cards.length));
+
+      lb.addEventListener('click', e => { if (e.target === lb) close(); });
+
+      document.addEventListener('keydown', e => {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape')     close();
+        if (e.key === 'ArrowLeft')  open((cur - 1 + cards.length) % cards.length);
+        if (e.key === 'ArrowRight') open((cur + 1) % cards.length);
+      });
+    })();
+
+    // ── Scroll to top ──
+    (function () {
+      const btn = document.getElementById('scroll-top');
+      window.addEventListener('scroll', () => {
+        btn.classList.toggle('visible', window.scrollY > 320);
+      }, { passive: true });
+      btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    })();
+  </script>
 </body>
 </html>
