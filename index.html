@@ -1,11 +1,444 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Miguel | Desarrollador</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miguel Chuil | Desarrollador de Software</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent2: #22c55e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #020617, #0f172a);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      padding: 28px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 22px;
+      color: white;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 90px 0 70px;
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      color: var(--accent);
+      background: rgba(56, 189, 248, 0.12);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 6vw, 64px);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 680px;
+      margin-bottom: 30px;
+    }
+
+    .buttons a {
+      display: inline-block;
+      padding: 13px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      margin-right: 12px;
+      font-weight: bold;
+    }
+
+    .primary {
+      background: var(--accent);
+      color: #020617;
+    }
+
+    .secondary {
+      border: 1px solid #334155;
+      color: white;
+    }
+
+    .profile-card {
+      background: rgba(17, 24, 39, 0.85);
+      border: 1px solid #1f2937;
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    }
+
+    .profile-card h2 {
+      margin-bottom: 12px;
+    }
+
+    .profile-card p {
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 40px;
+    }
+
+    .stat {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid #1e293b;
+      padding: 22px;
+      border-radius: 18px;
+    }
+
+    .stat strong {
+      color: var(--accent2);
+      font-size: 28px;
+    }
+
+    section {
+      padding: 65px 0;
+    }
+
+    section h2 {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 750px;
+      margin-bottom: 35px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: rgba(17, 24, 39, 0.88);
+      border: 1px solid #1f2937;
+      padding: 24px;
+      border-radius: 20px;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      color: white;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    ul {
+      padding-left: 18px;
+    }
+
+    .tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tech span {
+      background: #1e293b;
+      color: #cbd5e1;
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-size: 14px;
+    }
+
+    .contact {
+      text-align: center;
+      background: rgba(17, 24, 39, 0.9);
+      border: 1px solid #1f2937;
+      border-radius: 26px;
+      padding: 50px 25px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 850px) {
+      .hero,
+      .grid,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Hola, soy Miguel</h1>
-  <p>Desarrollador de software especializado en sistemas web, apps móviles e ISP.</p>
+
+  <header class="container">
+    <div class="logo">Miguel Chuil</div>
+    <nav>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#proyectos">Experiencia</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div>
+        <span class="badge">Desarrollador de Software Full Stack</span>
+        <h1>Creo sistemas web y apps que resuelven problemas reales.</h1>
+        <p>
+          Soy desarrollador de software con más de 10 años de experiencia creando plataformas web,
+          aplicaciones móviles, sistemas administrativos, APIs, automatizaciones y soluciones para empresas.
+          Trabajo principalmente con PHP, JavaScript, Vue, Ionic, Laravel, CodeIgniter, MySQL y servicios en la nube.
+        </p>
+
+        <div class="buttons">
+          <a href="#contacto" class="primary">Trabajemos juntos</a>
+          <a href="#proyectos" class="secondary">Ver experiencia</a>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <h2>Especializado en soluciones empresariales</h2>
+        <p>
+          Desarrollo sistemas a la medida para negocios que necesitan controlar procesos,
+          clientes, pagos, inventarios, reportes y operaciones internas.
+        </p>
+        <p>
+          Mi enfoque es construir software funcional, mantenible y pensado para crecer.
+        </p>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="stats">
+        <div class="stat">
+          <strong>10+</strong>
+          <p>Años de experiencia</p>
+        </div>
+        <div class="stat">
+          <strong>Web</strong>
+          <p>Sistemas administrativos y APIs</p>
+        </div>
+        <div class="stat">
+          <strong>Apps</strong>
+          <p>Aplicaciones móviles con Ionic</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre-mi" class="container">
+      <h2>Sobre mí</h2>
+      <p class="section-intro">
+        Soy un desarrollador enfocado en entregar soluciones prácticas. He trabajado en sistemas para empresas ISP,
+        control escolar, ventas, inventarios, pagos, reportes, aplicaciones móviles y administración de servidores.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Backend</h3>
+          <p>
+            Desarrollo APIs, paneles administrativos, módulos de negocio, autenticación,
+            reportes, procesos automáticos y lógica empresarial.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Frontend</h3>
+          <p>
+            Creo interfaces limpias, responsivas y fáciles de usar con Vue, JavaScript,
+            TailwindCSS, Bootstrap y tecnologías modernas.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Apps móviles</h3>
+          <p>
+            Desarrollo aplicaciones móviles híbridas con Ionic y Capacitor para Android,
+            integradas con APIs, pagos, notificaciones y paneles administrativos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios" class="container">
+      <h2>Servicios</h2>
+      <p class="section-intro">
+        Ayudo a negocios y empresas a digitalizar procesos, automatizar tareas y crear herramientas
+        que realmente usen en su operación diaria.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Sistemas a la medida</h3>
+          <ul>
+            <li>CRMs y paneles administrativos</li>
+            <li>Control de clientes y pagos</li>
+            <li>Inventarios y movimientos</li>
+            <li>Reportes y dashboards</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Aplicaciones móviles</h3>
+          <ul>
+            <li>Apps para clientes</li>
+            <li>Apps para cobradores o técnicos</li>
+            <li>Integración con APIs</li>
+            <li>Notificaciones push</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Soporte técnico y mejora de sistemas</h3>
+          <ul>
+            <li>Migraciones de PHP</li>
+            <li>Optimización de bases de datos</li>
+            <li>Corrección de errores</li>
+            <li>Administración básica de servidores</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos" class="container">
+      <h2>Experiencia destacada</h2>
+      <p class="section-intro">
+        Algunos tipos de proyectos en los que he trabajado y que reflejan mi experiencia construyendo software real,
+        no castillos de humo con login bonito.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Sistemas para empresas ISP</h3>
+          <p>
+            Desarrollo y mantenimiento de plataformas para administración de contratos,
+            pagos, suspensión de servicio, sucursales, reportes, inventario y operación diaria.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Aplicaciones para clientes y cobradores</h3>
+          <p>
+            Apps móviles conectadas a sistemas centrales para consulta de pagos,
+            reportes, servicios, gestión de clientes y operación en campo.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Sistemas escolares y administrativos</h3>
+          <p>
+            Desarrollo de soluciones para control de alumnos, pagos, calificaciones,
+            usuarios, reportes y administración interna.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <h2>Tecnologías</h2>
+      <p class="section-intro">
+        Herramientas y tecnologías con las que trabajo frecuentemente.
+      </p>
+
+      <div class="tech">
+        <span>PHP</span>
+        <span>Laravel</span>
+        <span>CodeIgniter</span>
+        <span>JavaScript</span>
+        <span>Vue.js</span>
+        <span>Ionic</span>
+        <span>Angular</span>
+        <span>Capacitor</span>
+        <span>MySQL</span>
+        <span>Firebase</span>
+        <span>REST APIs</span>
+        <span>Git</span>
+        <span>cPanel / WHM</span>
+        <span>Linux VPS</span>
+      </div>
+    </section>
+
+    <section id="contacto" class="container">
+      <div class="contact">
+        <h2>¿Tienes un proyecto en mente?</h2>
+        <p class="section-intro" style="margin: 15px auto 30px;">
+          Puedo ayudarte a crear, mejorar o mantener tu sistema web, aplicación móvil o plataforma empresarial.
+        </p>
+
+        <div class="buttons">
+          <a href="mailto:tu-correo@correo.com" class="primary">Enviarme un correo</a>
+          <a href="https://github.com/mchuil" class="secondary" target="_blank">Ver GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Miguel Chuil. Desarrollador de Software.
+  </footer>
+
 </body>
 </html>
